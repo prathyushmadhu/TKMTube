@@ -6,7 +6,7 @@ function App() {
 
   return (
     <div>
-    <div className="App styled-div">
+    <div className="styled-div">
    <h1 className = "heading">{name}</h1>
     </div>
     <div className = "styled-div">
