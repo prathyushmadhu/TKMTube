@@ -2,13 +2,15 @@ import React from "react";
 import "./Header.css";
 import { Navbar,Container,Nav } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import SearchBar from "./Searchbar";
+
 
 const Header = () => {
   return (
     <div>
       <h1 className="Header">TKMTUBE</h1>
-      <>
-      <Navbar bg="dark" data-bs-theme="dark" >
+      <SearchBar/>
+      <Navbar  >
         <Container >
           <Navbar.Brand href="#home"></Navbar.Brand>
           <Nav className ="ms-auto" fontSize = "large">
@@ -20,8 +22,6 @@ const Header = () => {
           </Nav>
         </Container>
       </Navbar>
-      </>
-      
     </div>
   );
 };
