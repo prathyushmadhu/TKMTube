@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom'; // Import useNavigate
+import { useNavigate } from 'react-router-dom';
 import './LoginPage.css';
 
 const LoginPage = () => {
-  const navigate = useNavigate(); // Initialize navigate
+  const navigate = useNavigate();
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
@@ -14,12 +14,11 @@ const LoginPage = () => {
   };
 
   const handleRegister = () => {
-    navigate('/register'); // Use navigate to navigate to the '/register' route
+    navigate('/register');
   };
 
   return (
-    <div>
-      {/* Login form */}
+    <div className="login-page">
       <div className="login-container">
         <h2>Login</h2>
         <form>
@@ -31,8 +30,10 @@ const LoginPage = () => {
             <label htmlFor="password">Password:</label>
             <input type="password" id="password" value={password} onChange={(e) => setPassword(e.target.value)} />
           </div>
-          <button type="button" onClick={handleSignIn}>Sign In</button>
-          <button type="button" onClick={handleRegister}>Register</button>
+          <div className="button-group">
+            <button type="button" className="signin-button" onClick={handleSignIn}>Sign In</button>
+            <button type="button" className="register-button" onClick={handleRegister}>Register</button>
+          </div>
         </form>
       </div>
     </div>

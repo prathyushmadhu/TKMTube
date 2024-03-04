@@ -11,6 +11,10 @@ import {
 } from "react-router-dom";
 import LoginPage from './LoginPage';
 import RegisterPage from './RegisterPage';
+import Contact from './Contact';
+import Terms from './Terms';
+import PrivacyPolicy from './PrivacyPolicy';
+import Gallery from './Gallery';
 
 const router = createBrowserRouter([
   {
@@ -24,6 +28,22 @@ const router = createBrowserRouter([
   {
     path: "/Register",
     element: <RegisterPage/>,
+  },
+  {
+    path: "/Contact",
+    element: <Contact/>,
+  },
+  {
+    path: "/Terms",
+    element: <Terms/>,
+  },
+  {
+    path: "/Privacy",
+    element: <PrivacyPolicy/>,
+  },
+  {
+    path: "/Gallery",
+    element: <Gallery/>,
   },
 
 ]);

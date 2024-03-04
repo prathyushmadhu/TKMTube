@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import './Blog.css';
 
 function Post() {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
-    axios.get('http://localhost:3032/users')
+    axios.get('http://localhost:3033/users')
       .then(response => {
         setPosts(response.data);
       })
@@ -15,14 +16,14 @@ function Post() {
   }, []);
 
   return (
-    <div>
-      <h1>Blog Posts</h1>
-      <ul>
+    <div className="post-container">
+      <h1 className="post-heading">Blog Posts</h1>
+      <ul className="post-list">
         {posts.map(post => (
-          <li key={post.title}>
-            <h2>{post.title}</h2>
-            <p>{post.body}</p>
-            <p>Author: {post.username}</p>
+          <li key={post.title} className="post-item">
+            <h2 className="post-title">{post.title}</h2>
+            <p className="post-body">{post.body}</p>
+            <p className="post-author">Author: {post.username}</p>
           </li>
         ))}
       </ul>

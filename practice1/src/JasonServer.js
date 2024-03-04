@@ -4,7 +4,7 @@ import axios from 'axios'
 function JasonServer() {
     const [data,setData] = useState([])
     useEffect(() => {
-      axios.get('http://localhost:3032/users')
+      axios.get('http://localhost:3033/users')
       .then(res => setData(res.data))
       .catch(err => console.log(err))
     }, [])
