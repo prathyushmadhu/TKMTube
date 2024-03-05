@@ -1,0 +1,1 @@
+DB_URL = "mysql://avnadmin:AVNS_6R4qVtdTKPKzZlsmoqP@mysql-23942956-neerajmanivarnan-001.a.aivencloud.com:20164/tkmtube"
