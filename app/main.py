@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from databases import SessionLocal
+# from databases import SessionLocal
 
 from blog.main import  app as blog_app
 

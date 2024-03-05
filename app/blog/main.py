@@ -1,14 +1,24 @@
-from fastapi import FastAPI, Depends, HTTPException, status
+# from fastapi import FastAPI, Depends, HTTPException, status
 from fastapi.responses import JSONResponse
-from sqlalchemy.orm import Session
-from models import Blog
-from database import SessionLocal
-from typing import List
+# from sqlalchemy.orm import Session
+from .models import Blog,BlogCreate,BlogP
 
+# from .database import SessionLocal
+# from typing import List
+from . import models
+# main.py
+
+
+from fastapi import FastAPI, HTTPException, Depends
+from sqlalchemy.orm import Session
+from typing import List
+from . import models
+from .database import SessionLocal, engine
 
 app = FastAPI()
 
-# Dependency for database session
+# models.Base.metadata.create_all(bind=engine)
+
 def get_db():
     db = SessionLocal()
     try:
@@ -16,10 +26,55 @@ def get_db():
     finally:
         db.close()
 
-@app.get("/blogs", response_model=List[Blog])
-def get_all_blogs(db: Session = Depends(get_db)):
-    blogs = db.query(Blog).all()
+
+
+@app.get("/{username}",response_model=BlogP)
+async def get_home(username : str,db: Session = Depends(get_db)):
+    blogs = db.query(Blog).filter(Blog.username == username).first()
     return blogs
+
+
+# @app.get("/", response_model=List[Blog])
+# def get_all_blogs(skip: int = 0, limit: int = 10, db: Session = Depends(get_db)):
+#     blogs = db.query(models.Blog).offset(skip).limit(limit).all()
+#     return blogs
+
+
+
+
+
+
+
+
+# app = FastAPI()
+
+# Dependency for database session
+# def get_db():
+#     db = SessionLocal()
+#     try:
+#         yield db
+#     finally:
+#         db.close()
+
+# @app.get("/", response_model=List[Blog])
+# async def get_all_blogs(db: Session = Depends(get_db)):
+#     blogs = db.query(models.Blog.blog_number, models.Blog.username, models.Blog.title, models.Blog.message, models.Blog.time).all()
+
+#     return blogs
+
+# @app.get("/")
+# async def get_all_blogs():
+#     # blogs = db.query(models.Blog).all()
+#     return {"neeraj":"message returned"}    
+
+# @app.get("/")
+# def get_all_blogs(db: Session = Depends(get_db)):
+#     blogs = db.query(Blog).all()
+#     return blogs    
+
+# @app.get("/")
+# async def getblogs():
+#     return {"these" : "are the blogs"}
 
 @app.post("/blogs", response_model=Blog)
 def create_blog(blog: Blog, db: Session = Depends(get_db)):
@@ -51,11 +106,11 @@ def update_blog(blog_id: int, updated_blog: Blog, db: Session = Depends(get_db))
     return existing_blog
 
 
-@app.delete("/blogs/{blog_id}", status_code=status.HTTP_204_NO_CONTENT)
-def delete_blog(blog_id: int, db: Session = Depends(get_db)):
-    db.query(Blog).filter(Blog.id == blog_id).delete()
-    db.commit()
-    return JSONResponse(status_code=status.HTTP_204_NO_CONTENT)
+# @app.delete("/blogs/{blog_id}", status_code=status.HTTP_204_NO_CONTENT)
+# def delete_blog(blog_id: int, db: Session = Depends(get_db)):
+#     db.query(Blog).filter(Blog.id == blog_id).delete()
+#     db.commit()
+#     return JSONResponse(status_code=status.HTTP_204_NO_CONTENT)
 
 # Run the application
 if __name__ == "__main__":
