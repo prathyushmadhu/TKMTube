@@ -1,21 +1,3 @@
-
-import "./App.css";
-import React from "react";
-import Header from "./components/Header";
-import Blog from "./components/Blog";
-
-
-function App() {
-
-  return (
-    <>
-   <Header />
-   <Blog/>
-   </>
-  );
-}
-export default App;
-
 // App.js
 
 import React from 'react';
@@ -31,6 +13,7 @@ function App() {
       <div className="content">
         {/* Your other components and content will go here */}
         <h1>Welcome to My Blog</h1>
+        <p>This is a simple React blogging website.</p>
         <Blog />
       </div>
       <Footer />
@@ -39,4 +22,3 @@ function App() {
 }
 
 export default App;
-
