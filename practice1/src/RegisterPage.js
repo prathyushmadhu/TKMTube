@@ -7,18 +7,34 @@ const RegisterPage = () => {
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState('');
-  const [phoneNumber, setPhoneNumber] = useState('');
+  const [userType, setUserType] = useState(''); // New state for user type
 
-  const handleCreateAccount = () => {
-    console.log('Username:', username);
-    console.log('Email:', email);
-    console.log('Password:', password);
-    console.log('Confirm Password:', confirmPassword);
-    console.log('Phone Number:', phoneNumber);
+  const handleCreateAccount = async () => {
+    try {
+      const response = await fetch('/auth/users/', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          username,
+          email,
+          password,
+          userType,
+        }),
+      });
 
-    // Navigate to the desired route
-    navigate('/blog');
+      if (response.ok) {
+        console.log('User account created successfully!');
+        // Navigate to the desired route
+        navigate('/blog');
+      } else {
+        // Handle error response
+        console.error('Failed to create user account');
+      }
+    } catch (error) {
+      console.error('An error occurred:', error);
+    }
   };
 
   return (
@@ -39,12 +55,12 @@ const RegisterPage = () => {
             <input type="password" id="password" value={password} onChange={(e) => setPassword(e.target.value)} />
           </div>
           <div className="form-group">
-            <label htmlFor="confirm-password">Confirm Password:</label>
-            <input type="password" id="confirm-password" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} />
-          </div>
-          <div className="form-group">
-            <label htmlFor="phone-number">Phone Number:</label>
-            <input type="tel" id="phone-number" value={phoneNumber} onChange={(e) => setPhoneNumber(e.target.value)} />
+            <label htmlFor="user-type">User Type:</label>
+            <select id="user-type" value={userType} onChange={(e) => setUserType(e.target.value)}>
+              <option value="">Select User Type</option>
+              <option value="Person">Person</option>
+              <option value="Organisation">Organisation</option>
+            </select>
           </div>
           <button type="button" onClick={handleCreateAccount}>Create Account</button>
         </form>
