@@ -11,9 +11,6 @@ function App() {
     <div className="App">
       <Navbar />
       <div className="content">
-        {/* Your other components and content will go here */}
-        <h1>Welcome to My Blog</h1>
-        <p>This is a simple React blogging website.</p>
         <Blog />
       </div>
       <Footer />

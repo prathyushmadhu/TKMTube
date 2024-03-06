@@ -6,7 +6,7 @@ function Post() {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
-    axios.get('http://localhost:3033/users')
+    axios.get('http://localhost:3032/users')
       .then(response => {
         setPosts(response.data);
       })

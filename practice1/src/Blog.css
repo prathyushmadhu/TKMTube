@@ -1,14 +1,14 @@
 /* Post.css */
 .post-container {
-  max-width: 800px;
+  max-width: 1300px;
   margin: 0 auto;
   padding: 20px;
-  background-color: #f8f8f9; /* White lilac */
+  background-image: #f8f8f9; /* White lilac */
 }
 
 .post-heading {
   font-size: 32px;
-  color: #111439; /* Dark blue */
+  color: #181471; /* Dark blue */
   margin-bottom: 20px;
 }
 
