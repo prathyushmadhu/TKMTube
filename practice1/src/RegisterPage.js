@@ -9,7 +9,7 @@ const RegisterPage = () => {
   const [password, setPassword] = useState('');
   const [userType, setUserType] = useState(''); // New state for user type
 
-  const handleCreateAccount = async () => {
+  /*const handleCreateAccount = async () => {
     try {
       const response = await fetch('/auth/users/', {
         method: 'POST',
@@ -35,6 +35,10 @@ const RegisterPage = () => {
     } catch (error) {
       console.error('An error occurred:', error);
     }
+  };*/
+
+  const handleCreateAccount = () => {
+    navigate('/blog');
   };
 
   return (
