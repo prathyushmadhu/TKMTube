@@ -11,6 +11,7 @@ import Terms from './Terms';
 import PrivacyPolicy from './PrivacyPolicy';
 import Gallery from './Gallery';
 
+
 createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <Router>
@@ -22,6 +23,7 @@ createRoot(document.getElementById('root')).render(
         <Route path="/terms" element={<Terms />} />
         <Route path="/privacy" element={<PrivacyPolicy />} />
         <Route path="/gallery" element={<Gallery />} />
+
       </Routes>
     </Router>
   </React.StrictMode>
