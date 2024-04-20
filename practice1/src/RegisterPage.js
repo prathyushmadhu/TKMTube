@@ -61,7 +61,7 @@ const RegisterPage = () => {
           <div className="form-group">
             <label htmlFor="user-type">User Type:</label>
             <select id="user-type" value={userType} onChange={(e) => setUserType(e.target.value)}>
-              <option value="">Select User Type</option>
+              {/* <option value="">Select User Type</option> */}
               <option value="Person">Person</option>
               <option value="Organisation">Organisation</option>
             </select>
