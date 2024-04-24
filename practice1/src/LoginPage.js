@@ -1,3 +1,5 @@
+// LoginPage.js
+
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './LoginPage.css';
@@ -6,6 +8,7 @@ const LoginPage = () => {
   const navigate = useNavigate();
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [darkMode, setDarkMode] = useState(false);
 
   const handleSignIn = () => {
     console.log('Username:', username);
@@ -17,8 +20,12 @@ const LoginPage = () => {
     navigate('/register');
   };
 
+  const toggleDarkMode = () => {
+    setDarkMode(!darkMode);
+  };
+
   return (
-    <div className="login-page">
+    <div className={`login-page ${darkMode ? 'dark-mode' : ''}`}>
       <div className="login-container">
         <h2>Login</h2>
         <form>
@@ -35,6 +42,9 @@ const LoginPage = () => {
             <button type="button" className="register-button" onClick={handleRegister}>Register</button>
           </div>
         </form>
+        <div className="dark-mode-toggle" onClick={toggleDarkMode}>
+          {darkMode ? 'Light Mode' : 'Dark Mode'}
+        </div>
       </div>
     </div>
   );
