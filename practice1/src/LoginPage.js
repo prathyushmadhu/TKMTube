@@ -17,7 +17,7 @@ const LoginPage = () => {
   return (
     <div className="login-page">
       <div className="login-container">
-        <h2>FINAL</h2>
+        <h2>LOGIN</h2>
         <form>
           <div className="form-group">
             <label htmlFor="username">Username:</label>
