@@ -1,4 +1,4 @@
-.register-page {
+/* .register-page {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -64,4 +64,13 @@ button {
 
 button:hover {
   background-color: #4f4dfe;
+} */
+.cascading-right {
+  margin-right: -50px;
+}
+
+@media (max-width: 900px) {
+  .cascading-right {
+    margin-right: 0;
+  }
 }

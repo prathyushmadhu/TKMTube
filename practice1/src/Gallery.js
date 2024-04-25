@@ -31,6 +31,7 @@
 import React from 'react';
 import './Gallery.css';
 import Navbar from './Navbar';
+import 'bootstrap/dist/css/bootstrap.css';
 import Footer from './Footer';
 import { Link } from 'react-router-dom';
 // import { detectOverflow } from '@popperjs/core';
@@ -45,12 +46,12 @@ export default function App() {
     
     <MDBRow>
       <Navbar />
-      <>
+      {/* <>
       
     <Link to="/sgal">
       <button>Slide</button>
     </Link>
-      </>
+      </> */}
       <MDBCol lg={4} md={12} className='mb-4 mb-lg-0'>
         <img
           src='https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(73).webp'
