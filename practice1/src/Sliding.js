@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
+import 'bootstrap/dist/css/bootstrap.css';
 import {
-//   MDBContainer,
   MDBCol,
   MDBRow,
   MDBModal,
@@ -21,8 +21,8 @@ export default function App() {
       <MDBRow>
         <MDBCol lg={4} md={12} className='mb-4 mb-lg-0'>
           <div className='bg-image hover-overlay ripple shadow-1-strong rounded'>
-            <img src='https://mdbcdn.b-cdn.net/img/screens/yt/screen-video-1.webp' className='w-100' />
-            <a style={{ cursor: 'pointer' }} onClick={() => setModal1(true)}>
+            <img src='https://mdbcdn.b-cdn.net/img/screens/yt/screen-video-1.webp' className='w-100' alt='Video 1' />
+            <a href="#!" style={{ cursor: 'pointer' }} onClick={() => setModal1(true)}>
               <div className='mask' style={{ backgroundColor: 'rgba(251, 251, 251, 0.2)' }}></div>
             </a>
           </div>
@@ -30,22 +30,21 @@ export default function App() {
 
         <MDBCol lg={4} md={12} className='mb-4 mb-lg-0'>
           <div className='bg-image hover-overlay ripple shadow-1-strong rounded'>
-            <img src='https://mdbcdn.b-cdn.net/img/screens/yt/screen-video-2.webp' className='w-100' />
-            <a style={{ cursor: 'pointer' }} onClick={() => setModal2(true)}>
+            <img src='https://mdbcdn.b-cdn.net/img/screens/yt/screen-video-2.webp' className='w-100' alt='Video 2' />
+            <a href="#!" style={{ cursor: 'pointer' }} onClick={() => setModal2(true)}>
               <div className='mask' style={{ backgroundColor: 'rgba(251, 251, 251, 0.2)' }}></div>
             </a>
           </div>
         </MDBCol>
 
         <MDBCol lg={4} md={12} className='mb-4 mb-lg-0'>
-  <div className='bg-image hover-overlay ripple shadow-1-strong rounded'>
-    <img src='https://mdbcdn.b-cdn.net/img/screens/yt/screen-video-1.webp' className='w-100' alt='Video 1' />
-    <a href="#!" style={{ cursor: 'pointer' }} onClick={() => setModal1(true)}>
-      <div className='mask' style={{ backgroundColor: 'rgba(251, 251, 251, 0.2)' }}></div>
-    </a>
-  </div>
-</MDBCol>
-
+          <div className='bg-image hover-overlay ripple shadow-1-strong rounded'>
+            <img src='https://mdbcdn.b-cdn.net/img/screens/yt/screen-video-3.webp' className='w-100' alt='Video 3' />
+            <a href="#!" style={{ cursor: 'pointer' }} onClick={() => setModal3(true)}>
+              <div className='mask' style={{ backgroundColor: 'rgba(251, 251, 251, 0.2)' }}></div>
+            </a>
+          </div>
+        </MDBCol>
       </MDBRow>
 
       <MDBModal show={modal1} setShow={setModal1}>
