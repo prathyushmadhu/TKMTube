@@ -13,7 +13,7 @@ import Terms from './Terms';
 import PrivacyPolicy from './PrivacyPolicy';
 import Gallery from './Gallery';
 import Profile from './Profile';
-import Sliding from './Sliding'
+// import Sliding from './Sliding'
 
 
 
@@ -29,7 +29,7 @@ createRoot(document.getElementById('root')).render(
         <Route path="/privacy" element={<PrivacyPolicy />} />
         <Route path="/gallery" element={<Gallery />} />
         <Route path="/Profile" element={<Profile />} />
-        <Route path="/sgal" element={<Sliding/>}/>
+        {/* <Route path="/sgal" element={<Sliding/>}/> */}
       </Routes>
     </Router>
   </React.StrictMode>

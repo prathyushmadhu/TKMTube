@@ -1,6 +1,7 @@
 import React from 'react';
 import Navbar from './Navbar';
 import Footer from './Footer';
+import 'bootstrap/dist/css/bootstrap.css';
 
 // import { createPopper, detectOverflow } from '@popperjs/core';
 
