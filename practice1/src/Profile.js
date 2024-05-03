@@ -95,18 +95,22 @@ function Profile() {
                   </MDBCol>
                 </MDBRow> */}
                 <div className="post-container">
-      <ul className="post-list">
-        {posts.map(post => (
-          <li key={post.id} className="post-item">
-            <h2 className="post-title">{post.title}</h2>
-            <p className="post-body">{post.body}</p>
-            <p className="post-author">Author: {post.username}</p>
-            <p className="post-id">ID: {post.id}</p>
-            <p className="post-created-at">Created At: {post.createdAt}</p>
-          </li>
-        ))}
-      </ul>
-    </div>
+  <ul className="post-list">
+    {posts.map(post => (
+      // Check if post.username is equal to "neeraj"
+      post.username === "neeraj" && (
+        <li key={post.id} className="post-item1">
+          <h2 className="post-title">{post.title}</h2>
+          <p className="post-body">{post.body}</p>
+          <p className="post-author">Author: {post.username}</p>
+          <p className="post-id">ID: {post.id}</p>
+          <p className="post-created-at">Created At: {post.createdAt}</p>
+        </li>
+      )
+    ))}
+  </ul>
+</div>
+
               </MDBCardBody>
             </MDBCard>
           </MDBCol>
