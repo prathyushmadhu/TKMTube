@@ -63,8 +63,8 @@ function Profile() {
               </div>
               <MDBCardBody className="text-black p-4">
                 <div className="mb-5">
-                  <p className="lead fw-normal mb-1" style={{ color: 'black' }}>About</p>
-                  <div className="p-4" style={{ backgroundColor: '#000000' }}>
+                  <p className="lead fw-normal mb-1" style={{ color: 'black'}}>About</p>
+                  <div className="p-4" style={{ backgroundColor: '#000000' ,  opacity : 0.5}}>
                     <MDBCardText className="font-italic mb-1">Web Developer</MDBCardText>
                     <MDBCardText className="font-italic mb-1">Lives in New York</MDBCardText>
                     <MDBCardText className="font-italic mb-0">Photographer</MDBCardText>

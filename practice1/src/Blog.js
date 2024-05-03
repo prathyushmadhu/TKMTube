@@ -16,6 +16,7 @@ function Post() {
   }, []);
 
   return (
+    <div className="post-blog">
     <div className="post-container">
       <h1 className="post-heading">Blog Posts</h1>
       <ul className="post-list">
@@ -29,6 +30,7 @@ function Post() {
           </li>
         ))}
       </ul>
+    </div>
     </div>
   );
 }
