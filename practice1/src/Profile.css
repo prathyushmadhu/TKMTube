@@ -95,6 +95,7 @@ body {
     }
     .post-item1 {
       background-color: #000000; /* Color gradient */
+      opacity: 0.5;
       color: #000000; /* White */
       border-radius: 5px;
       padding: 20px;

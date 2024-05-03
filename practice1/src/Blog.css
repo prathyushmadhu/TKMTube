@@ -1,14 +1,17 @@
 /* Post.css */
 .post-container {
+ /* background-image: url("tkm.jpg"); */
   max-width: 1300px;
   margin: 0 auto;
   padding: 20px;
-  background-image: #f8f8f9; /* White lilac */
+  background-image: #000000; /* White lilac */
 }
-
+/* .post-blog{
+  background-image: url("tkm.jpg");
+} */
 .post-heading {
   font-size: 32px;
-  color: #181471; /* Dark blue */
+  color: #000000; /* Dark blue */
   margin-bottom: 20px;
 }
 
@@ -18,8 +21,9 @@
 }
 
 .post-item {
-  background-image: linear-gradient(to right, #ff6b6b, #5564e9); /* Color gradient */
+  opacity: 0.5;
   color: #fff; /* White */
+  background-color: rgb(0, 0, 0);
   border-radius: 5px;
   padding: 20px;
   margin-bottom: 20px;
