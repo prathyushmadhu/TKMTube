@@ -102,8 +102,8 @@ function Profile() {
         <li key={post.id} className="post-item1">
           <h2 className="post-title">{post.title}</h2>
           <p className="post-body">{post.body}</p>
-          <p className="post-author">Author: {post.username}</p>
-          <p className="post-id">ID: {post.id}</p>
+          {/* <p className="post-author">Author: {post.username}</p>
+          <p className="post-id">ID: {post.id}</p> */}
           <p className="post-created-at">Created At: {post.createdAt}</p>
         </li>
       )
