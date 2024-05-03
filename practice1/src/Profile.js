@@ -1,14 +1,29 @@
-import React from 'react';
+
 import Navbar from './Navbar';
 import Footer from './Footer';
 import 'bootstrap/dist/css/bootstrap.css';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 
 // import { createPopper, detectOverflow } from '@popperjs/core';
 
 import { MDBCol, MDBContainer, MDBRow, MDBCard, MDBCardText, MDBCardBody, MDBCardImage, MDBBtn, MDBTypography } from 'mdb-react-ui-kit';
 import './Profile.css';
 
+
+
 function Profile() {
+  const [posts, setPosts] = useState([]);
+
+  useEffect(() => {
+    axios.get('http://localhost:8080/blogs/')
+      .then(response => {
+        setPosts(response.data);
+      })
+      .catch(error => {
+        console.error('Error fetching posts:', error);
+      });
+  }, []);
   return (
     <div className="profile-page">
       <Navbar />
@@ -26,40 +41,40 @@ function Profile() {
                   </MDBBtn>
                 </div>
                 <div className="ms-3" style={{ marginTop: '130px' }}>
-                  <MDBTypography tag="h5">Andy Horwitz</MDBTypography>
-                  <MDBCardText>New York</MDBCardText>
+                  <MDBTypography tag="h5">Neeraj Manivarnan</MDBTypography>
+                  <MDBCardText>Maamood</MDBCardText>
                 </div>
               </div>
               <div className="p-4 text-black" style={{ backgroundColor: '#f8f9fa' }}>
                 <div className="d-flex justify-content-end text-center py-1">
-                  <div>
+                  {/* <div>
                     <MDBCardText className="mb-1 h5">253</MDBCardText>
                     <MDBCardText className="small text-muted mb-0">Photos</MDBCardText>
-                  </div>
-                  <div className="px-3">
+                  </div> */}
+                  {/* <div className="px-3">
                     <MDBCardText className="mb-1 h5">1026</MDBCardText>
                     <MDBCardText className="small text-muted mb-0">Followers</MDBCardText>
-                  </div>
+                  </div> */}
                   <div>
-                    <MDBCardText className="mb-1 h5">478</MDBCardText>
-                    <MDBCardText className="small text-muted mb-0">Following</MDBCardText>
+                    <MDBCardText className="mb-1 h5">10</MDBCardText>
+                    <MDBCardText className="small text-muted mb-0">Blogs</MDBCardText>
                   </div>
                 </div>
               </div>
               <MDBCardBody className="text-black p-4">
                 <div className="mb-5">
-                  <p className="lead fw-normal mb-1">About</p>
-                  <div className="p-4" style={{ backgroundColor: '#f8f9fa' }}>
+                  <p className="lead fw-normal mb-1" style={{ color: 'black' }}>About</p>
+                  <div className="p-4" style={{ backgroundColor: '#000000' }}>
                     <MDBCardText className="font-italic mb-1">Web Developer</MDBCardText>
                     <MDBCardText className="font-italic mb-1">Lives in New York</MDBCardText>
                     <MDBCardText className="font-italic mb-0">Photographer</MDBCardText>
                   </div>
                 </div>
                 <div className="d-flex justify-content-between align-items-center mb-4">
-                  <MDBCardText className="lead fw-normal mb-0">Recent photos</MDBCardText>
+                <MDBCardText className="lead fw-normal mb-0" style={{ color: 'black' }}>Recent Blogs</MDBCardText>
                   <MDBCardText className="mb-0"><a href="#!" className="text-muted">Show all</a></MDBCardText>
                 </div>
-                <MDBRow>
+                {/* <MDBRow>
                   <MDBCol className="mb-2">
                     <MDBCardImage src="https://mdbcdn.b-cdn.net/img/Photos/Lightbox/Original/img%20(112).webp"
                       alt="image 1" className="w-100 rounded-3" />
@@ -78,7 +93,20 @@ function Profile() {
                     <MDBCardImage src="https://mdbcdn.b-cdn.net/img/Photos/Lightbox/Original/img%20(114).webp"
                       alt="image 1" className="w-100 rounded-3" />
                   </MDBCol>
-                </MDBRow>
+                </MDBRow> */}
+                <div className="post-container">
+      <ul className="post-list">
+        {posts.map(post => (
+          <li key={post.id} className="post-item">
+            <h2 className="post-title">{post.title}</h2>
+            <p className="post-body">{post.body}</p>
+            <p className="post-author">Author: {post.username}</p>
+            <p className="post-id">ID: {post.id}</p>
+            <p className="post-created-at">Created At: {post.createdAt}</p>
+          </li>
+        ))}
+      </ul>
+    </div>
               </MDBCardBody>
             </MDBCard>
           </MDBCol>
