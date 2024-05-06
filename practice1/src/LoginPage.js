@@ -1,51 +1,16 @@
-// import React, { useState } from 'react';
-// // import { CSSTransition } from 'react-transition-group';
-// import { useNavigate } from 'react-router-dom';
-// import './LoginPage.css';
-// const LoginPage = () => {
-//   const navigate = useNavigate();
-//   const [username, setUsername] = useState('');
-//   const [password, setPassword] = useState('');
-//   const handleSignIn = () => {
-//     console.log('Username:', username);
-//     console.log('Password:', password);
-//     // Perform login logic here
-//   };
-//   const handleRegister = () => {
-//     navigate('/register');
-//   };
-
-//   return (
-//     <div className="login-page">
-//       <div className="login-container">
-//         <h2>LOGIN</h2>
-//         <form>
-//           <div className="form-group">
-//             <label htmlFor="username">Username:</label>
-//             <input type="text" id="username" value={username} onChange={(e) => setUsername(e.target.value)} />
-//           </div>
-//           <div className="form-group">
-//             <label htmlFor="password">Password:</label>
-//             <input type="password" id="password" value={password} onChange={(e) => setPassword(e.target.value)} />
-//           </div>
-//           <div className="button-group">
-//             <button type="button" className="signin-button" onClick={handleSignIn}>Sign In</button>
-//             <button type="button" className="register-button" onClick={handleRegister}>Register</button>
-//           </div>
-//         </form>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default LoginPage;
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
-import { MDBContainer, MDBCol, MDBRow, MDBBtn, MDBIcon, MDBInput, MDBCheckbox } from 'mdb-react-ui-kit';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faFacebookF, faTwitter, faLinkedinIn } from '@fortawesome/free-brands-svg-icons';
+
+import { MDBContainer, MDBCol, MDBRow, MDBBtn, MDBInput, MDBCheckbox } from 'mdb-react-ui-kit';
 
 function App() {
 
   return (
+    <>
+    <h1 className="text-white" style={{ fontSize: '2.5rem', marginTop: '20px', marginLeft: '20px', fontFamily: 'Noto Sans', fontWeight: 'bold' }}>TkmTube</h1>
+
     <MDBContainer fluid className="p-3 my-5 h-custom">
 
       <MDBRow>
@@ -54,25 +19,24 @@ function App() {
           <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp" className="img-fluid" alt="Sample" />
         </MDBCol>
 
-        <MDBCol col='4' md='6'>
+        <MDBCol col='4' md='6' style={{ marginTop: '80px' }}>
 
-          <div className="d-flex flex-row align-items-center justify-content-center">
+        <div className="d-flex flex-row align-items-center justify-content-center">
+  <p className="lead fw-normal mb-0 me-3">Sign in with</p>
 
-            <p className="lead fw-normal mb-0 me-3">Sign in with</p>
+  <MDBBtn floating size='md' tag='a' className='me-2'>
+    <FontAwesomeIcon icon={faFacebookF} />
+  </MDBBtn>
 
-            <MDBBtn floating size='md' tag='a' className='me-2'>
-              <MDBIcon fab icon='facebook-f' />
-            </MDBBtn>
+  <MDBBtn floating size='md' tag='a' className='me-2'>
+    <FontAwesomeIcon icon={faTwitter} />
+  </MDBBtn>
 
-            <MDBBtn floating size='md' tag='a' className='me-2'>
-              <MDBIcon fab icon='twitter' />
-            </MDBBtn>
+  <MDBBtn floating size='md' tag='a' className='me-2'>
+    <FontAwesomeIcon icon={faLinkedinIn} />
+  </MDBBtn>
+</div>
 
-            <MDBBtn floating size='md' tag='a' className='me-2'>
-              <MDBIcon fab icon='linkedin-in' />
-            </MDBBtn>
-
-          </div>
 
           <div className="divider d-flex align-items-center my-4">
             <p className="text-center fw-bold mx-3 mb-0">Or</p>
@@ -97,28 +61,15 @@ function App() {
       </MDBRow>
 
       <div className="loginfooter">
-  <div className="d-flex flex-column flex-md-row text-center text-md-start justify-content-between py-4 px-4 px-xl-5 bg-primary">
+  <div className="d-flex flex-column flex-md-row text-center text-md-start justify-content-between py-4 px-4 px-xl-5 bg-primary" style={{ marginTop: '125px' }}>
     <div className="text-white mb-3 mb-md-0">
-      Copyright © 2020. All rights reserved.
+      Copyright © 2024. All rights reserved.
     </div>
-    <div>
-      <MDBBtn tag='a' color='none' className='mx-3' style={{ color: 'white' }}>
-        <MDBIcon fab icon='facebook-f' size="md" />
-      </MDBBtn>
-      <MDBBtn tag='a' color='none' className='mx-3' style={{ color: 'white' }}>
-        <MDBIcon fab icon='twitter' size="md" />
-      </MDBBtn>
-      <MDBBtn tag='a' color='none' className='mx-3' style={{ color: 'white' }}>
-        <MDBIcon fab icon='google' size="md" />
-      </MDBBtn>
-      <MDBBtn tag='a' color='none' className='mx-3' style={{ color: 'white' }}>
-        <MDBIcon fab icon='linkedin-in' size="md" />
-      </MDBBtn>
-    </div>
+
   </div>
 </div>
 
-    </MDBContainer>
+    </MDBContainer></>
   );
 }
 
