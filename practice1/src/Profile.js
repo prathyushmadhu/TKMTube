@@ -53,8 +53,8 @@ function Profile() {
                     </MDBBtn>
                   </div>
                   <div className="ms-3" style={{ marginTop: '130px' }}>
-                    <MDBTypography tag="h5">Neeraj Manivarnan</MDBTypography>
-                    <MDBCardText>Maamood</MDBCardText>
+                    <MDBTypography tag="h5">{LoggedInUser}</MDBTypography>
+                    <MDBCardText>TKM</MDBCardText>
                   </div>
                 </div>
                 <div className="p-4 text-black" style={{ backgroundColor: '#f8f9fa' }}>
