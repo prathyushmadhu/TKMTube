@@ -14,7 +14,10 @@ function App() {
     if (username === '' || password === '') {
       setLoginStatus('Login Failed');
     } else if (username === password) {
-      setLoggedInUser(username); // Store the username in LoggedInUser variable
+      // Store the username in localStorage
+localStorage.setItem('LoggedInUser', username);
+setLoggedInUser(username);
+ // Store the username in LoggedInUser variable
       setLoginStatus('Login Successful');
       // Navigate to '/blog' route after successful login
       window.location.href = '/blog';
@@ -74,6 +77,7 @@ function App() {
           <div className="d-flex flex-column flex-md-row text-center text-md-start justify-content-between py-4 px-4 px-xl-5 bg-primary" style={{ marginTop: '125px' }}>
             <div className="text-white mb-3 mb-md-0">
               Copyright © 2024. All rights reserved.
+              <span> {LoggedInUser}</span>
             </div>
           </div>
         </div>

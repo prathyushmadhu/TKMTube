@@ -18,7 +18,7 @@ function Post() {
   return (
     <div className="post-blog">
     <div className="post-container">
-      <h1 className="post-heading">Blog Posts</h1>
+      <h1 className="post-heading">Blogs</h1>
       <ul className="post-list">
         {posts.map(post => (
           <li key={post.id} className="post-item">
