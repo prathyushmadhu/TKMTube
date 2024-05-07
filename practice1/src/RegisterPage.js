@@ -28,7 +28,7 @@ function App() {
   <MDBInput wrapperClass='mb-4' label='Confirm password' id='passwordInput' type='password' size="lg" />
 
   <div className="d-flex justify-content-center">
-    <button className='btn btn-lg btn-primary mb-4' onClick={() => window.location.href="/blog"}>
+    <button className='btn btn-lg btn-primary mb-4' onClick={() => window.location.href="/"}>
       Register
     </button>
   </div>

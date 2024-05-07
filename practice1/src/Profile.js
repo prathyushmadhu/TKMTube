@@ -11,6 +11,16 @@ function Profile() {
   const [LoggedInUser, setLoggedInUser] = useState(''); // State variable to store the logged-in user
 
   useEffect(() => {
+    // Retrieve the LoggedInUser from localStorage
+    const storedLoggedInUser = localStorage.getItem('LoggedInUser');
+    if (storedLoggedInUser) {
+      setLoggedInUser(storedLoggedInUser);
+    }
+  
+    // Other useEffect code...
+  }, []);
+  
+  useEffect(() => {
     axios.get('http://localhost:8080/blogs/')
       .then(response => {
         setPosts(response.data);
@@ -69,6 +79,7 @@ function Profile() {
                     <MDBCardText className="mb-0"><a href="#!" className="text-muted">Show all</a></MDBCardText>
                   </div>
                   <div className="post-container">
+                    {/* <span> {LoggedInUser}</span> */}
                     <ul className="post-list">
                       {posts.map(post => (
                         // Check if post.username is equal to LoggedInUser

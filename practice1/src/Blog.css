@@ -1,6 +1,6 @@
 /* Post.css */
 .post-container {
-  background-image: url("Back.jpg"); 
+  /* background-image: url("Back.jpg");  */
   width: 100%;
   height: 100%;
   background-size: cover; /* Cover the entire background */
@@ -16,7 +16,7 @@
 } */
 .post-heading {
   font-size: 32px;
-  color: #ffffff; /* Dark blue */
+  color: #000000; /* Dark blue */
   margin-bottom: 20px;
 }
 

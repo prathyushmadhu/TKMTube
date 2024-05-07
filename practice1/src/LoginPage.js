@@ -14,7 +14,10 @@ function App() {
     if (username === '' || password === '') {
       setLoginStatus('Login Failed');
     } else if (username === password) {
-      setLoggedInUser(username); // Store the username in LoggedInUser variable
+      // Store the username in localStorage
+localStorage.setItem('LoggedInUser', username);
+setLoggedInUser(username);
+ // Store the username in LoggedInUser variable
       setLoginStatus('Login Successful');
       // Navigate to '/blog' route after successful login
       window.location.href = '/blog';
