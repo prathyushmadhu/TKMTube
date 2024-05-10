@@ -1,5 +1,7 @@
 import Navbar from './Navbar';
 import Footer from './Footer';
+import Popup from 'reactjs-popup';
+import 'reactjs-popup/dist/index.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
@@ -8,19 +10,46 @@ import './Profile.css';
 
 function Profile() {
   const [posts, setPosts] = useState([]);
-  const [LoggedInUser, setLoggedInUser] = useState(''); // State variable to store the logged-in user
+  const [LoggedInUser, setLoggedInUser] = useState('');
+  const [title, setTitle] = useState('');
+  const [content, setContent] = useState('');
+
+  const handlePost = () => {
+    // Prepare the data to be sent
+    const postData = {
+      title: title,
+      content: content
+    };
+
+    // Send the data to the desired URL
+    fetch('http://localhost:8080/blogs/', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(postData)
+    })
+    .then(response => {
+      if (response.ok) {
+        console.log('Post successful');
+        // Optionally, you can clear the input fields after successful posting
+        setTitle('');
+        setContent('');
+      } else {
+        console.error('Post failed');
+      }
+    })
+    .catch(error => {
+      console.error('Error:', error);
+    });
+  };
 
   useEffect(() => {
-    // Retrieve the LoggedInUser from localStorage
     const storedLoggedInUser = localStorage.getItem('LoggedInUser');
     if (storedLoggedInUser) {
       setLoggedInUser(storedLoggedInUser);
     }
-  
-    // Other useEffect code...
-  }, []);
-  
-  useEffect(() => {
+
     axios.get('http://localhost:8080/blogs/')
       .then(response => {
         setPosts(response.data);
@@ -29,17 +58,12 @@ function Profile() {
         console.error('Error fetching posts:', error);
       });
 
-    // Assuming you have stored the LoggedInUser in localStorage or sessionStorage
-    const storedLoggedInUser = localStorage.getItem('LoggedInUser');
-    if (storedLoggedInUser) {
-      setLoggedInUser(storedLoggedInUser);
-    }
   }, []);
 
   return (
     <div className="profile-page">
       <Navbar />
-      <div className="gradient-custom-2" >
+      <div className="gradient-custom-2">
         <MDBContainer className="py-5 h-100">
           <MDBRow className="justify-content-center align-items-center h-100">
             <MDBCol lg="9" xl="7">
@@ -76,13 +100,45 @@ function Profile() {
                   </div>
                   <div className="d-flex justify-content-between align-items-center mb-4">
                     <MDBCardText className="lead fw-normal mb-0" style={{ color: 'black' }}>Recent Blogs</MDBCardText>
-                    <MDBCardText className="mb-0"><a href="#!" className="text-muted">Show all</a></MDBCardText>
+                    {/* <button className="btn btn-dark" onClick={SimplePopup}>Write</button> */}
+                   {/*  <div>
+  <Popup trigger={<button className="btn btn-dark">Write</button>} modal nested>
+    {close => (
+      <div className='modal'>
+        <div className='content'>
+          <div style={{ fontSize: '24px', color: 'black' }}>Welcome to GFG!!!</div>
+          <div>
+            <input type="text" placeholder="Enter text 1" />
+          </div>
+          <div>
+            <input type="text" placeholder="Enter text 2" />
+          </div>
+          <div>
+            <button onClick={() => close()}>Close modal</button>
+          </div>
+        </div>
+      </div>
+    )}
+  </Popup>
+</div> */}
+
+<Popup trigger={<button className="btn btn-dark">Write</button>} modal nested>
+  <div className="popup-container" style={{ color: 'black' }}>
+    Write your Blog here !!
+    <div>
+      <input className="title" type="text" placeholder="Title" />
+    </div>
+    <div>
+      <input className="content" type="text" placeholder="Content" />
+    </div>
+    <button className="btn btn-dark" onClick={handlePost}>Post</button>
+  </div>
+</Popup>
+
                   </div>
                   <div className="post-container">
-                    {/* <span> {LoggedInUser}</span> */}
                     <ul className="post-list">
                       {posts.map(post => (
-                        // Check if post.username is equal to LoggedInUser
                         post.username === LoggedInUser && (
                           <li key={post.id} className="post-item1">
                             <h2 className="post-title">{post.title}</h2>
@@ -93,7 +149,6 @@ function Profile() {
                       ))}
                     </ul>
                   </div>
-
                 </MDBCardBody>
               </MDBCard>
             </MDBCol>
