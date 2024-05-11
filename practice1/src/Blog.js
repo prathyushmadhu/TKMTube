@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-// import { AiFillLike, AiFillDislike } from 'react-icons/ai';
 import axios from 'axios';
 import './Blog.css';
 import TopPosts from './TopPosts';
+import { Provider,LikeButton } from "@lyket/react";
 
 function Post() {
   const [posts, setPosts] = useState([]);
@@ -34,7 +34,18 @@ function Post() {
                 
                 <h2 className="post-title">{post.title}</h2>
                 <p className="post-body">{post.body}</p>
-                <p className="post-created-at">Created At: {post.createdAt}</p>
+                {/* <p className="post-created-at">Created At: {post.createdAt}</p> */}
+                <div style={{ display: 'inline-block' }}>
+                <Provider apiKey="acc0dbccce8e557db5ebbe6d605aaa">
+  <LikeButton
+    namespace="testing-react"
+    id="everybody-like-now"
+  />
+</Provider>
+	
+    {/* <p className="likes-count" style={{ display: 'inline-block',  marginLeft: '10px' }}>{post.likes}</p> */}
+</div>
+
               </div>
             </li>
           ))}
