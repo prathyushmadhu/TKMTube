@@ -1,11 +1,25 @@
 
   /* Navbar styles */
   .navbar {
+    font-weight: bolder;
     background-color: #3f3f3f; /* Dark blue */
     color: #fff; /* White */
     padding: 10px 20px;
+    
+    display: flex;
+    justify-content: center;
+  }
+
+  .new{
+
+    display: flex;
+    justify-content: center;
+    visibility: hidden;
+
   }
   .nav-links {
+    
+    /* background-color: aqua; */
     list-style: none;
     display: flex;
     justify-content: flex-end; /* Align elements to the right */
@@ -13,12 +27,16 @@
     margin: 0; /* Remove default margin */
   }
   .navbar ul {
+    display: flex;
+    justify-content: center;
     list-style: none;
     padding: 0;
+    
     margin: 0;
   }
   
   .navbar li {
+    
     display: inline;
     margin-right: 20px;
   }
@@ -29,4 +47,26 @@
   }
   .nav-links a:hover {
     color: #ccc;
+  }
+
+  .propik {
+    width: 40px; /* Adjust size as needed */
+    height: 40px; /* Adjust size as needed */
+    border-radius: 50%; /* Create a circle shape */
+    background-color: #ccc; /* Default background color for the circle */
+    margin-right: 10px; /* Add spacing between profile picture and post content */
+    flex-shrink: 0; /* Prevent the profile picture from shrinking */
+  }
+
+  .new2{
+    display: flex;
+    justify-content: center;
+    
+  }
+
+  .prolink{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 8px;
   }
