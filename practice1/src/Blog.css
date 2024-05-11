@@ -10,25 +10,53 @@
   margin: 0 auto;
   padding: 20px;
   background-image: #000000; White lilac */
+  /* display: flex;
+  width: auto; */
 }
+
+
 /* .post-blog{
   background-image: url("tkm.jpg");
 } */
 .post-heading {
+  font-weight: bolder;
   font-size: 32px;
   color: #000000; /* Dark blue */
   margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
 }
+
+.profile-picture {
+  width: 40px; /* Adjust size as needed */
+  height: 40px; /* Adjust size as needed */
+  border-radius: 50%; /* Create a circle shape */
+  background-color: #ccc; /* Default background color for the circle */
+  margin-right: 10px; /* Add spacing between profile picture and content */
+}
+
 
 .post-list {
   list-style-type: none;
   padding: 0;
+  
+}
+
+.post-header-inside{
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  /* background-color: #ccc; */
+  padding: 4px;
+  align-self:center ;
 }
 
 .post-item {
+  
+  display: grid;
   opacity: 0.8;
-  color: #fff; /* White */
-  background-color: rgb(0, 0, 0);
+  color: #222222; /* White */
+  background-color:aliceblue;
   width: 75%;
   margin: 0 auto;
   height: 100%;
@@ -44,19 +72,68 @@
 }
 
 .post-title {
-  font-size: 24px;
-  justify-content: centerS;
-  color: #ffffff; /* White */
+  margin-top: 8px;
+  font-size: 28px;
+  font-weight: bolder;
+  /* justify-content: centerS; */
+  color: #0f0e0e; /* White */
   margin-bottom: 10px;
 }
 
 .post-body {
-  font-size: 16px;
-  color: #f8f8f9; /* White lilac */
+  font-size: 20px;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  color: #1e1e1f; /* White lilac */
   margin-bottom: 10px;
 }
 
 .post-author {
-  font-size: 14px;
-  color: #f8f8f9; /* White lilac */
+  
+  font-size: 16px;
+  font-weight: bold;
+  color: #0c0c0d; /* White lilac */
 }
+
+
+.post-header{
+ 
+  display: flex;
+  /* justify-content: center; */
+  align-self: center;
+}
+
+
+
+ /*changes*/
+
+
+ .post-blog {
+  display: flex;
+  justify-content: space-between;
+}
+
+.post-container {
+  width: 70%; /* Adjust as needed */
+}
+
+.post-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.post-item {
+  margin-bottom: 20px;
+}
+
+/* Styles for the right side */
+.post-blog .post-container {
+  order: 1;
+}
+
+.post-blog .top-posts-container {
+  width: 30%; /* Adjust as needed */
+  margin-left: 20px; /* Add margin for spacing */
+}
+
+
+
