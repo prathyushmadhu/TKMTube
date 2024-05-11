@@ -28,7 +28,7 @@ function SignUpForm() {
       //   mode: 'cors', // Ensure CORS mode is set
       // });
 
-      const handleSubmit = (e) => {
+      
         e.preventDefault();
         axios
           .post("http://localhost:8000/users/",formData)
@@ -38,7 +38,7 @@ function SignUpForm() {
           .catch((error) => {
             console.log(error);
           });
-      };
+      
 
       // if (!response.ok) {
       //   throw new Error('Network response was not ok');

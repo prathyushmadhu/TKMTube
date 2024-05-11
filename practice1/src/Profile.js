@@ -14,35 +14,46 @@ function Profile() {
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
 
-  const handlePost = () => {
+  const handlePost = (title, content, closePopup) => {
     // Prepare the data to be sent
     const postData = {
       title: title,
-      content: content
+      body: content,
+      username: LoggedInUser,
+      // createdAt: new Date().toISOString()
     };
-
+  
     // Send the data to the desired URL
-    fetch('http://localhost:8080/blogs/', {
+    fetch('http://localhost:8080/blogs/add', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify(postData)
     })
+    
     .then(response => {
       if (response.ok) {
+        
+        // Close the popup after successful posting
+        closePopup();
         console.log('Post successful');
         // Optionally, you can clear the input fields after successful posting
-        setTitle('');
-        setContent('');
+        // setTitle('title');
+        // setContent('content');
+        // Display an alert message for successful post
+        // alert('Blog posted successfully!');
       } else {
         console.error('Post failed');
+        throw new Error('Post failed'); // Throw an error to trigger the catch block
       }
     })
     .catch(error => {
       console.error('Error:', error);
+      alert('Failed to post the blog. Please try again.'); // Display an alert message for failed post
     });
   };
+  
 
   useEffect(() => {
     const storedLoggedInUser = localStorage.getItem('LoggedInUser');
@@ -123,18 +134,19 @@ function Profile() {
 </div> */}
 
 <Popup trigger={<button className="btn btn-dark">Write</button>} modal nested>
-  <div className="popup-container" style={{ color: 'black' }}>
-    Write your Blog here !!
-    <div>
-      <input className="title" type="text" placeholder="Title" />
+  {close => (
+    <div className="popup-container" style={{ color: 'black' }}>
+      Write your Blog here !!
+      <div>
+        <input className="title" type="text" placeholder="Title" onChange={e => setTitle(e.target.value)} />
+      </div>
+      <div>
+        <input className="content" type="text" placeholder="Content" onChange={e => setContent(e.target.value)} />
+      </div>
+      <button className="btn btn-dark" onClick={() => handlePost(title, content, close)}>Post</button>
     </div>
-    <div>
-      <input className="content" type="text" placeholder="Content" />
-    </div>
-    <button className="btn btn-dark" onClick={handlePost}>Post</button>
-  </div>
+  )}
 </Popup>
-
                   </div>
                   <div className="post-container">
                     <ul className="post-list">

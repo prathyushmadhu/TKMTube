@@ -13,7 +13,7 @@ import Terms from './Terms';
 import PrivacyPolicy from './PrivacyPolicy';
 import Gallery from './Gallery';
 import Profile from './Profile';
-import SignUpForm from './signUpForm';
+// import SignUpForm from './signUpForm';
 // import Sliding from './Sliding'
 
 
