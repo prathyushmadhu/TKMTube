@@ -134,6 +134,9 @@
   width: 30%; /* Adjust as needed */
   margin-left: 20px; /* Add margin for spacing */
 }
+.likes-count {
+  color: black;
+}
 
 
 
