@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { AiFillLike, AiFillDislike } from 'react-icons/ai';
 import axios from 'axios';
 import './Blog.css';
 
@@ -27,7 +28,10 @@ function Post() {
             <p className="post-author">Author: {post.username}</p>
             <p className="post-id">ID: {post.id}</p>
             <p className="post-created-at">Created At: {post.createdAt}</p>
+            <AiFillLike color="Red" size="25" />
+            <AiFillDislike color="Red" size="25" />
           </li>
+          
         ))}
       </ul>
     </div>
