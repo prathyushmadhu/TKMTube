@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { AiFillLike, AiFillDislike } from 'react-icons/ai';
+// import { AiFillLike, AiFillDislike } from 'react-icons/ai';
 import axios from 'axios';
 import './Blog.css';
+import TopPosts from './TopPosts';
 
 function Post() {
   const [posts, setPosts] = useState([]);
@@ -18,23 +19,30 @@ function Post() {
 
   return (
     <div className="post-blog">
-    <div className="post-container">
-      <h1 className="post-heading">Blogs</h1>
-      <ul className="post-list">
-        {posts.map(post => (
-          <li key={post.id} className="post-item">
-            <h2 className="post-title">{post.title}</h2>
-            <p className="post-body">{post.body}</p>
-            <p className="post-author">Author: {post.username}</p>
-            <p className="post-id">ID: {post.id}</p>
-            <p className="post-created-at">Created At: {post.createdAt}</p>
-            <AiFillLike color="Red" size="25" />
-            <AiFillDislike color="Red" size="25" />
-          </li>
-          
-        ))}
-      </ul>
-    </div>
+      <div className="post-container">
+        <h1 className="post-heading">Blogs</h1>
+        
+        <ul className="post-list">
+          {posts.map(post => (
+            <li key={post.id} className="post-item">
+              {/* Circle div for profile picture */}
+              <div className='post-header'>
+              <div className="profile-picture"></div>
+              <div className=''><p className="post-author">@{post.username}</p></div>
+              </div>
+              <div className="post-content">
+                
+                <h2 className="post-title">{post.title}</h2>
+                <p className="post-body">{post.body}</p>
+                <p className="post-created-at">Created At: {post.createdAt}</p>
+              </div>
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div className="top-posts-container">
+        <TopPosts />
+      </div>
     </div>
   );
 }
