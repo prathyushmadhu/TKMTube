@@ -129,7 +129,28 @@ body {
   /* max-width: 400px; Adjust width as needed */
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
 }
-
+.profile-picture {
+  width: 40px; /* Adjust size as needed */
+  height: 40px; /* Adjust size as needed */
+  border-radius: 50%; /* Create a circle shape */
+  background-color: #ccc; /* Default background color for the circle */
+  margin-right: 10px; /* Add spacing between profile picture and content */
+}
+.post-item {
+  
+  display: grid;
+  opacity: 0.8;
+  color: #222222; /* White */
+  background-color:aliceblue;
+  width: 75%;
+  margin: 0 auto;
+  height: 100%;
+  border-radius: 5px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+}
 /* Style for the title input field */
 .title {
   width: 100%;
