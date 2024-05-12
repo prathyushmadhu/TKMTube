@@ -5,6 +5,10 @@ import 'reactjs-popup/dist/index.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import DeleteIcon from '@mui/icons-material/Delete';
+import Grid from '@mui/material/Grid';
+import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
+// import { AccessAlarm, ThreeDRotation } from '@mui/icons-material';
 import { MDBCol, MDBContainer, MDBRow, MDBCard, MDBCardText, MDBCardBody, MDBCardImage, MDBBtn, MDBTypography } from 'mdb-react-ui-kit';
 import './Profile.css';
 
@@ -153,9 +157,20 @@ function Profile() {
                       {posts.map(post => (
                         post.username === LoggedInUser && (
                           <li key={post.id} className="post-item1">
-                            <h2 className="post-title">{post.title}</h2>
-                            <p className="post-body">{post.body}</p>
-                            <p className="post-created-at">Created At: {post.createdAt}</p>
+                            <div className='post-header'>
+              <div className="profile-picture"></div>
+              <div className=''><p className="post-author">@{post.username}</p></div>
+              </div>
+              <div className="post-content">
+                
+                <h2 className="post-title">{post.title}</h2>
+                <p className="post-body">{post.body}</p>
+                            <Grid item xs={8}>
+        <DeleteIcon />
+        <DeleteForeverIcon />
+      </Grid>
+</div>
+
                           </li>
                         )
                       ))}

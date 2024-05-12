@@ -1,12 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { motion } from "framer-motion";
 import './Blog.css';
 import TopPosts from './TopPosts';
 import { Provider,LikeButton } from "@lyket/react";
+import { useSpring, animated } from '@react-spring/web'
 
 function Post() {
   const [posts, setPosts] = useState([]);
-
+  const springs = useSpring({
+    from: { x: 1000 },
+    
+    to: { x: 0 },
+    config: { duration: 2500 }
+  })
   useEffect(() => {
     axios.get('http://localhost:8080/blogs/')
       .then(response => {
@@ -26,7 +33,16 @@ function Post() {
           {posts.map(post => (
             <li key={post.id} className="post-item">
               {/* Circle div for profile picture */}
-              <div className='post-header'>
+              <div className="my-container">
+              <animated.div style={{
+        // width: 80,
+        // height: 80,
+        // background: '#ff6d6d',
+        // borderRadius: 8,
+        ...springs,
+      }}>
+              <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 1.0 }}>
+              <div className='post-header' >
               <div className="profile-picture"></div>
               <div className=''><p className="post-author">@{post.username}</p></div>
               </div>
@@ -47,10 +63,14 @@ function Post() {
 </div>
 
               </div>
+              </motion.div>
+              </animated.div>
+              </div>
             </li>
           ))}
         </ul>
       </div>
+      
       <div className="top-posts-container">
         <TopPosts />
       </div>

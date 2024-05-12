@@ -41,7 +41,11 @@
   padding: 0;
   
 }
+.my-container div {
+  background: aliceblue;
+  border-radius: 30px;
 
+}
 .post-header-inside{
   display: grid;
   justify-content: center;
@@ -137,6 +141,5 @@
 .likes-count {
   color: black;
 }
-
 
 
