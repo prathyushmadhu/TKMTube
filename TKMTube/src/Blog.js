@@ -13,7 +13,7 @@ function Post() {
     from: { x: 2000 },
     
     to: { x: 0 },
-    config: { duration: 3500 }
+    config: { duration: 2500 }
   })
   
   
