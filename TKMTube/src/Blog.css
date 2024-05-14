@@ -1,0 +1,152 @@
+/* Post.css */
+body {
+ 
+  background-color: #111;
+
+}
+.post-container {
+  /* background-image: url("Back.jpg");  */
+  width: 100%;
+  height: 100%;
+  background-size: cover; /* Cover the entire background */
+    background-position: center; /* Center the background */
+    background-attachment: fixed; 
+  /* max-width: 1300px;
+  margin: 0 auto;
+  padding: 20px;
+  background-image: #000000; White lilac */
+  /* display: flex;
+  width: auto; */
+}
+/* .App{
+  background-color: #000000;
+} */
+
+/* .post-blog{
+  background-image: url("tkm.jpg");
+} */
+.post-heading {
+  font-weight: bolder;
+  font-size: 32px;
+  color: #000000; /* Dark blue */
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.profile-picture {
+  width: 40px; /* Adjust size as needed */
+  height: 40px; /* Adjust size as needed */
+  border-radius: 50%; /* Create a circle shape */
+  background-color: #ccc; /* Default background color for the circle */
+  margin-right: 10px; /* Add spacing between profile picture and content */
+}
+
+
+.post-list {
+  list-style-type: none;
+  padding: 0;
+  
+}
+.my-container div {
+  background: aliceblue;
+  border-radius: 30px;
+
+}
+.post-header-inside{
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  /* background-color: #ccc; */
+  padding: 4px;
+  align-self:center ;
+}
+
+.post-item {
+  
+  display: grid;
+  opacity: 0.8;
+  color: #222222; /* White */
+  background-color:aliceblue;
+  width: 75%;
+  margin: 0 auto;
+  height: 100%;
+  border-radius: 5px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+}
+
+.post-item:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.post-title {
+  margin-top: 8px;
+  font-size: 28px;
+  font-weight: bolder;
+  /* justify-content: centerS; */
+  color: #0f0e0e; /* White */
+  margin-bottom: 10px;
+}
+
+.post-body {
+  font-size: 20px;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  color: #1e1e1f; /* White lilac */
+  margin-bottom: 10px;
+}
+
+.post-author {
+  
+  font-size: 16px;
+  font-weight: bold;
+  color: #0c0c0d; /* White lilac */
+}
+
+
+.post-header{
+ 
+  display: flex;
+  /* justify-content: center; */
+  align-self: center;
+}
+
+
+
+ /*changes*/
+
+
+ .post-blog {
+  display: flex;
+  justify-content: space-between;
+}
+
+.post-container {
+  width: 70%; /* Adjust as needed */
+}
+
+.post-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.post-item {
+  margin-bottom: 20px;
+}
+
+/* Styles for the right side */
+.post-blog .post-container {
+  order: 1;
+}
+
+.post-blog .top-posts-container {
+  width: 30%; /* Adjust as needed */
+  margin-left: 20px; /* Add margin for spacing */
+}
+.likes-count {
+  color: black;
+}
+
+
