@@ -4,10 +4,11 @@ import { MDBContainer, MDBCol, MDBRow, MDBInput } from 'mdb-react-ui-kit';
 
 function App() {
   const [formData, setFormData] = useState({
-    name: '',
+    firstName: '',
+    lastName: '',
+    username: '',
     email: '',
     password: '',
-    confirmPassword: '',
   });
 
   const handleChange = (e) => {
@@ -15,7 +16,7 @@ function App() {
     setFormData((prevData) => ({ ...prevData, [name]: value }));
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = (formData) => {
     fetch('http://localhost:8000/userdetails/users/', {
       method: 'POST',
       headers: {
@@ -26,13 +27,14 @@ function App() {
       .then((response) => response.json())
       .then((data) => {
         console.log('Success:', data);
-        // Add any success handling here
+        alert('Registration successful!');
       })
       .catch((error) => {
         console.error('Error:', error);
-        // Add error handling here
+        alert('Registration Failed!');
       });
   };
+  
 
   return (
     <>
@@ -43,28 +45,32 @@ function App() {
           <MDBCol col='10' md='6'>
             <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp" className="img-fluid" alt="Sample" />
           </MDBCol>
-          <MDBCol col='8' md='6' style={{ marginTop: '100px' }}>
+          <MDBCol col='8' md='6' style={{ marginTop: '75px' }}>
             <div style={{ marginTop: '-50px' }}>
               <p className="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4" style={{ fontSize: '2rem' }}>Sign up</p>
-              <MDBInput wrapperClass='mb-4' label='Your Name' name='name' id='nameInput' type='text' size="lg" value={formData.name} onChange={handleChange} />
+              <MDBRow>
+                <MDBCol size='6'>
+                  <MDBInput wrapperClass='mb-4' label='First Name' name='firstName' id='firstNameInput' type='text' size="lg" value={formData.firstName} onChange={handleChange} />
+                </MDBCol>
+                <MDBCol size='6'>
+                  <MDBInput wrapperClass='mb-4' label='Last Name' name='lastName' id='lastNameInput' type='text' size="lg" value={formData.lastName} onChange={handleChange} />
+                </MDBCol>
+              </MDBRow>
+              <MDBInput wrapperClass='mb-4' label='Username' name='username' id='usernameInput' type='text' size="lg" value={formData.username} onChange={handleChange} />
               <MDBInput wrapperClass='mb-4' label='E-mail' name='email' id='emailInput' type='email' size="lg" value={formData.email} onChange={handleChange} />
               <MDBInput wrapperClass='mb-4' label='Password' name='password' id='passwordInput' type='password' size="lg" value={formData.password} onChange={handleChange} />
-              <MDBInput wrapperClass='mb-4' label='Confirm password' name='confirmPassword' id='confirmPasswordInput' type='password' size="lg" value={formData.confirmPassword} onChange={handleChange} />
               <div className="d-flex justify-content-center">
-                <button className='btn btn-lg btn-primary mb-4' onClick={handleSubmit}>
-                  Register
-                </button>
+              <button className='btn btn-lg btn-primary mb-4' onClick={() => handleSubmit(formData)}>
+  Register
+</button>
+
+
+
+
               </div>
             </div>
           </MDBCol>
         </MDBRow>
-        <div className="loginfooter">
-          <div className="d-flex flex-column flex-md-row text-center text-md-start justify-content-between py-4 px-4 px-xl-5 bg-primary" style={{ marginTop: '23px' }}>
-            <div className="text-white mb-3 mb-md-0">
-              Copyright © 2024. All rights reserved.
-            </div>
-          </div>
-        </div>
       </MDBContainer>
     </>
   );
