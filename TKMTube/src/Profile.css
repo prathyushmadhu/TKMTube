@@ -1,0 +1,174 @@
+/* Global styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #111;
+    color: #fff;
+  }
+  
+  /* Navbar styles */
+  .navbar {
+    background-color: #222;
+    color: #fff;
+    padding: 1rem;
+  }
+  
+  .navbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .navbar ul li {
+    display: inline;
+    margin-right: 1rem;
+  }
+  
+  .navbar ul li a {
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  /* Footer styles */
+  .footer {
+    background-color: #222;
+    color: #fff;
+    padding: 1rem;
+    text-align: center;
+  }
+  
+  /* Profile styles */
+  .profile-page {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .profile-content {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .profile {
+    display: flex;
+    align-items: center;
+  }
+  
+  .profile-photo {
+    width: 150px;
+    height: 150px;
+    overflow: hidden;
+    border-radius: 50%;
+    margin-right: 2rem;
+    border: 3px solid #fff; /* Add a border for contrast */
+  }
+  
+  .profile-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .profile-bio h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: aqua;
+  }
+  
+  .profile-bio p {
+    font-size: 1.2rem;
+  }
+
+  .gradient-custom-2 {
+    /* fallback for old browsers */
+    /* background: #fbc2eb; */
+    background-color: aliceblue;
+    
+    /* Chrome 10-25, Safari 5.1-6 */
+    /* background: -webkit-linear-gradient(to right, rgba(251, 194, 235, 1), rgba(166, 193, 238, 1)); */
+    
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    /* background: linear-gradient(to right, rgba(251, 194, 235, 1), rgba(166, 193, 238, 1)) */
+    }
+    .post-item1 {
+      background-color: #000000; /* Color gradient */
+      opacity: 0.5;
+      color: #000000; /* White */
+      border-radius: 5px;
+      padding: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: box-shadow 0.3s ease;
+    }
+
+    /* Style for the button */
+.btn {
+  background-color: #333; /* Dark background color */
+  color: #fff; /* Text color */
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #555; /* Darker background color on hover */
+}
+
+/* Style for the popup container */
+.popup-container {
+  width: 100%;
+  background-color: #f9f9f9; /* Light background color */
+  border-radius: 10px;
+  padding: 20px;
+  /* max-width: 400px; Adjust width as needed */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+}
+.profile-picture {
+  width: 40px; /* Adjust size as needed */
+  height: 40px; /* Adjust size as needed */
+  border-radius: 50%; /* Create a circle shape */
+  background-color: #ccc; /* Default background color for the circle */
+  margin-right: 10px; /* Add spacing between profile picture and content */
+}
+
+.post-item {
+  
+  display: grid;
+  opacity: 0.8;
+  color: #222222; /* White */
+  background-color:aliceblue;
+  width: 75%;
+  margin: 0 auto;
+  height: 100%;
+  border-radius: 5px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+}
+/* Style for the title input field */
+.title {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+/* Style for the content input field */
+.content {
+  width: 100%;
+  height: 200px; /* Adjust height as needed */
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  font-size: 16px;
+}
