@@ -157,7 +157,21 @@ function Profile() {
     )}
   </Popup>
 </div> */}
+<Popup className="pop-up-element" trigger={<button className="btn btn-dark">Post</button>} modal nested>
+  {close => (
+    <div className="popup-container" style={{ color: 'black' }}>
+      Post here !!
+      <div>
+        <input className="title" type="text" placeholder="Title" onChange={e => setTitle(e.target.value)} />
+      </div>
+      <div>
+      <textarea className="content" placeholder="Content" onChange={e => setContent(e.target.value)} />
 
+      </div>
+      <button className="btn btn-dark" onClick={() => handlePost(title, content, close)}>Post</button>
+    </div>
+  )}
+</Popup>
 <Popup className="pop-up-element" trigger={<button className="btn btn-dark">Write</button>} modal nested>
   {close => (
     <div className="popup-container" style={{ color: 'black' }}>
