@@ -181,9 +181,9 @@ function Profile() {
         <ul className="post-list">
           {posts.map(post => (
             post.username === LoggedInUser && (
-              <li key={post.id} className="post-item">
+              <li key={post.id} className="post-item-profile">
               {/* Circle div for profile picture */}
-              <div className="my-container" >
+              <div className="my-container-profile" >
              
               <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 1.0 }}>
               <div className='post-header' >

@@ -12,7 +12,8 @@ import Terms from './Terms';
 import PrivacyPolicy from './PrivacyPolicy';
 import Gallery from './Gallery';
 import Profile from './Profile';
-import AppContent from './AppContent';
+// import AppContent from './AppContent';
+import LoginComponent from './LoginComponent';
 // import SignUpForm from './signUpForm';
 // import Sliding from './Sliding'
 
@@ -22,7 +23,7 @@ createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <Router>
       <Routes>
-        <Route path="/" element={<AppContent />} />
+        <Route path="/" element={<LoginComponent />} />
         <Route path="/blog" element={<App />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/terms" element={<Terms />} />
