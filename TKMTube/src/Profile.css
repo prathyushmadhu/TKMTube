@@ -1,6 +1,6 @@
 /* Global styles */
 body {
-    font-family: Arial, sans-serif;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     margin: 0;
     padding: 0;
     background-color: #111;
@@ -124,11 +124,14 @@ body {
 
 }
 
+
+
+
 /* Style for the popup container */
 .popup-container {
   width: 100%;
   background-color: #f9f9f9; /* Light background color */
-  border-radius: 10px;
+  border-radius: 20px;
   padding: 20px;
   /* max-width: 400px; Adjust width as needed */
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
@@ -166,6 +169,8 @@ body {
   font-size: 16px;
 }
 
+
+
 /* Style for the content input field */
 .content {
   width: 100%;
@@ -186,7 +191,35 @@ body {
   /* background-color: #222; */
 }
 
-.post-item{
-  /* background-color: aqua; */
+.post-item-profile{
+  /* background-color: #000000; */
+  background-color:#f5f5f5;
+  border-radius: 20px;
   width: 100%;
+}
+
+.my-container-profile{
+  margin: 10px;
+  padding: 10px;
+  /* background-color: #000000; */
+}
+
+.about-page{
+  font-weight: bolder;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  border-radius: 20px;
+}
+
+
+/* .about-page-container{
+ 
+} */
+
+
+.about-head{
+  display: flex;
+  
+  
+  /* background-color: #222; */
+  justify-content: center;
 }

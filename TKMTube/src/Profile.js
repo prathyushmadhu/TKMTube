@@ -113,7 +113,7 @@ function Profile() {
                     </MDBBtn>
                   </div>
                   <div className="ms-3" style={{ marginTop: '130px' }}>
-                    <MDBTypography tag="h5">{LoggedInUser}</MDBTypography>
+                    <MDBTypography tag="h5">@{LoggedInUser}</MDBTypography>
                     <MDBCardText>TKM</MDBCardText>
                   </div>
                 </div>
@@ -125,10 +125,10 @@ function Profile() {
                     </div>
                   </div>
                 </div>
-                <MDBCardBody className="text-black p-4" style={{width:'100%' }}>
-                  <div className="mb-5">
-                    <p className="lead fw-normal mb-1" style={{ color: 'black' }}>About</p>
-                    <div className="p-4" style={{ backgroundColor: '#000000', opacity: 0.5 }}>
+                <MDBCardBody className="text-black p-4 " style={{width:'100%' }}>
+                  <div className="mb-5 about-page-container" >
+                    <p className="lead fw-normal mb-1 about-head" style={{ color: 'black' }}>About</p>
+                    <div className="p-4 about-page" style={{ backgroundColor: '#000000', opacity: 0.5 }}>
                       <MDBCardText className="font-italic mb-1">Web Developer</MDBCardText>
                       <MDBCardText className="font-italic mb-1">Lives in New York</MDBCardText>
                       <MDBCardText className="font-italic mb-0">Photographer</MDBCardText>
@@ -158,7 +158,7 @@ function Profile() {
   </Popup>
 </div> */}
 
-<Popup trigger={<button className="btn btn-dark">Write</button>} modal nested>
+<Popup className="pop-up-element" trigger={<button className="btn btn-dark">Write</button>} modal nested>
   {close => (
     <div className="popup-container" style={{ color: 'black' }}>
       Write your Blog here !!
@@ -181,9 +181,9 @@ function Profile() {
         <ul className="post-list">
           {posts.map(post => (
             post.username === LoggedInUser && (
-              <li key={post.id} className="post-item">
+              <li key={post.id} className="post-item-profile">
               {/* Circle div for profile picture */}
-              <div className="my-container" >
+              <div className="my-container-profile" >
              
               <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 1.0 }}>
               <div className='post-header' >
