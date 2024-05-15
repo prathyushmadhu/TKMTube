@@ -28,8 +28,9 @@ setLoggedInUser(username);
 
   return (
     <>
-      <h1 className="text-white" style={{ fontSize: '2.5rem', marginTop: '20px', marginLeft: '20px', fontFamily: 'Noto Sans', fontWeight: 'bold' }}>TkmTube</h1>
-
+            <>
+  <img src="logo.png" alt="TkmTube Logo" style={{ marginTop: '20px', marginLeft: '20px', width: '200px', height: 'auto' }} />
+</>
       <MDBContainer fluid className="p-3 my-5 h-custom">
         <MDBRow>
           <MDBCol col='10' md='6'>
@@ -72,15 +73,7 @@ setLoggedInUser(username);
             </div>
           </MDBCol>
         </MDBRow>
-
-        <div className="loginfooter">
-          <div className="d-flex flex-column flex-md-row text-center text-md-start justify-content-between py-4 px-4 px-xl-5 bg-primary" style={{ marginTop: '125px' }}>
-            <div className="text-white mb-3 mb-md-0">
-              Copyright © 2024. All rights reserved.
-              <span> {LoggedInUser}</span>
-            </div>
-          </div>
-        </div>
+        <span>{LoggedInUser}</span>
       </MDBContainer>
     </>
   );

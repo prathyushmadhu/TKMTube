@@ -11,6 +11,7 @@ import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 // import { AccessAlarm, ThreeDRotation } from '@mui/icons-material';
 import { MDBCol, MDBContainer, MDBRow, MDBCard, MDBCardText, MDBCardBody, MDBCardImage, MDBBtn, MDBTypography } from 'mdb-react-ui-kit';
 import './Profile.css';
+import { useTrail, animated } from '@react-spring/web'
 import Loading from './Loading';
 
 function Profile() {
@@ -25,7 +26,11 @@ function Profile() {
       setIsLoading(false);
     }, 3000);
   }, []);
-
+  const trails = useTrail(2, {
+    from: { opacity: 0 },
+    to: { opacity: 1 },
+    config: { duration: 5000 } // Adjust the duration as needed (in milliseconds)
+  })
   const handlePost = (title, content, closePopup) => {
     // Prepare the data to be sent
     const postData = {
@@ -92,6 +97,8 @@ function Profile() {
     <div className="profile-page">
       <Navbar />
       <div className="gradient-custom-2">
+      {trails.map(props => (
+        <animated.div style={props}>
         <MDBContainer className="py-5 h-100">
           <MDBRow className="justify-content-center align-items-center h-100">
             <MDBCol lg="9" xl="7">
@@ -200,6 +207,9 @@ function Profile() {
             </MDBCol>
           </MDBRow>
         </MDBContainer>
+        </animated.div>
+      ))}
+
       </div>
       <Footer />
     </div>
