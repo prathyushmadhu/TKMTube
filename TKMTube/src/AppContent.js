@@ -7,6 +7,7 @@ import Buttons from './Buttons';
 import AuthContent from './AuthContent';
 import LoginForm from './LoginForm';
 import WelcomeContent from './WelcomeContent'
+import Header from './Header';
 
 export default class AppContent extends React.Component {
 
@@ -71,6 +72,7 @@ export default class AppContent extends React.Component {
   render() {
     return (
       <>
+      <Header/>
         <Buttons
           login={this.login}
           logout={this.logout}
