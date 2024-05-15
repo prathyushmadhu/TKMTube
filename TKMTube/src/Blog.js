@@ -4,16 +4,15 @@ import { motion } from "framer-motion";
 import './Blog.css';
 import TopPosts from './TopPosts';
 import { Provider,LikeButton } from "@lyket/react";
-import { useSpring, animated } from '@react-spring/web'
+import { useTrail, animated } from '@react-spring/web'
 
 
 function Post() {
   const [posts, setPosts] = useState([]);
-  const springs = useSpring({
-    from: { x: 2000 },
-    
-    to: { x: 0 },
-    config: { duration: 2500 }
+  const trails = useTrail(2, {
+    from: { opacity: 0 },
+    to: { opacity: 1 },
+    config: { duration: 3000 } // Adjust the duration as needed (in milliseconds)
   })
   
   
@@ -34,27 +33,16 @@ function Post() {
     <div className="post-blog">
       
       <div className="post-container">
-      <animated.div style={{
-        // width: 80,
-        // height: 80,
-        // background: '#ff6d6d',
-        // borderRadius: 8,
-        ...springs,
-      }}>
+      {trails.map(props => (
+        <animated.div style={props}>
         <h1 className="post-heading">Blogs</h1>
-        </animated.div>
+        
         <ul className="post-list">
           {posts.map(post => (
             <li key={post.id} className="post-item">
               {/* Circle div for profile picture */}
               <div className="my-container">
-              <animated.div style={{
-        // width: 80,
-        // height: 80,
-        // background: '#ff6d6d',
-        // borderRadius: 8,
-        ...springs,
-      }}>
+              
               <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 1.0 }}>
               <div className='post-header' >
               <div className="profile-picture"></div>
@@ -78,11 +66,13 @@ function Post() {
 
               </div>
               </motion.div>
-              </animated.div>
+             
               </div>
             </li>
           ))}
         </ul>
+        </animated.div>
+      ))}
       </div>
       
       <div className="top-posts-container">
