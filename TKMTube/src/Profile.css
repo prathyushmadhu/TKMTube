@@ -119,6 +119,10 @@ body {
 .btn:hover {
   background-color: #555; /* Darker background color on hover */
 }
+.post-container {
+  width: 100%; /* Take maximum width of the wrapped div */
+
+}
 
 /* Style for the popup container */
 .popup-container {

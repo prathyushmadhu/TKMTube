@@ -5,10 +5,11 @@ import 'reactjs-popup/dist/index.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import DeleteIcon from '@mui/icons-material/Delete';
-import Grid from '@mui/material/Grid';
-import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
-// import { AccessAlarm, ThreeDRotation } from '@mui/icons-material';
+import { motion } from "framer-motion";
+// import DeleteIcon from '@mui/icons-material/Delete';
+// import Grid from '@mui/material/Grid';
+// import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
+// // import { AccessAlarm, ThreeDRotation } from '@mui/icons-material';
 import { MDBCol, MDBContainer, MDBRow, MDBCard, MDBCardText, MDBCardBody, MDBCardImage, MDBBtn, MDBTypography } from 'mdb-react-ui-kit';
 import './Profile.css';
 import { useTrail, animated } from '@react-spring/web'
@@ -124,7 +125,7 @@ function Profile() {
                     </div>
                   </div>
                 </div>
-                <MDBCardBody className="text-black p-4">
+                <MDBCardBody className="text-black p-4" style={{width:'100%' }}>
                   <div className="mb-5">
                     <p className="lead fw-normal mb-1" style={{ color: 'black' }}>About</p>
                     <div className="p-4" style={{ backgroundColor: '#000000', opacity: 0.5 }}>
@@ -180,22 +181,30 @@ function Profile() {
         <ul className="post-list">
           {posts.map(post => (
             post.username === LoggedInUser && (
-              <li key={post.id} className="post-item1">
-                <div className='post-header'>
-  <div className="profile-picture"></div>
-  <div className=''><p className="post-author">@{post.username}</p></div>
-  </div>
-  <div className="post-content">
-    
-    <h2 className="post-title">{post.title}</h2>
-    <p className="post-body">{post.body}</p>
-                <Grid item xs={8}>
-<DeleteIcon />
-<DeleteForeverIcon />
-</Grid>
+              <li key={post.id} className="post-item">
+              {/* Circle div for profile picture */}
+              <div className="my-container" >
+             
+              <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 1.0 }}>
+              <div className='post-header' >
+              <div className="profile-picture"></div>
+              <div className=''><p className="post-author">@{post.username}</p></div>
+              </div>
+              <div className="post-content">
+                
+                <h2 className="post-title">{post.title}</h2>
+                <p className="post-body">{post.body}</p>
+                {/* <p className="post-created-at">Created At: {post.createdAt}</p> */}
+                <div style={{ display: 'inline-block' }}>
+                
+	
+    {/* <p className="likes-count" style={{ display: 'inline-block',  marginLeft: '10px' }}>{post.likes}</p> */}
 </div>
 
-              </li>
+              </div>
+              </motion.div>
+              </div>
+            </li>
             )
           ))}
         </ul>
