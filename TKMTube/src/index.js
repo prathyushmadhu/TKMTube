@@ -6,13 +6,13 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import LoginPage from './LoginPage';
-import RegisterPage from './RegisterPage';
+// import LoginForm from './LoginForm';
 import Contact from './Contact';
 import Terms from './Terms';
 import PrivacyPolicy from './PrivacyPolicy';
 import Gallery from './Gallery';
 import Profile from './Profile';
+import AppContent from './AppContent';
 // import SignUpForm from './signUpForm';
 // import Sliding from './Sliding'
 
@@ -22,9 +22,8 @@ createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <Router>
       <Routes>
-        <Route path="/" element={<LoginPage />} />
+        <Route path="/" element={<AppContent />} />
         <Route path="/blog" element={<App />} />
-        <Route path="/register" element={<RegisterPage />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/terms" element={<Terms />} />
         <Route path="/privacy" element={<PrivacyPolicy />} />
