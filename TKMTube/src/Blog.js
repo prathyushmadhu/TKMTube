@@ -9,10 +9,10 @@ import { useTrail, animated } from '@react-spring/web'
 
 function Post() {
   const [posts, setPosts] = useState([]);
-  const trails = useTrail(2, {
+  const trails = useTrail(1, {
     from: { opacity: 0 },
     to: { opacity: 1 },
-    config: { duration: 3000 } // Adjust the duration as needed (in milliseconds)
+    config: { duration: 5000 } // Adjust the duration as needed (in milliseconds)
   })
   
   
@@ -36,13 +36,12 @@ function Post() {
       {trails.map(props => (
         <animated.div style={props}>
         <h1 className="post-heading">Blogs</h1>
-        
         <ul className="post-list">
           {posts.map(post => (
             <li key={post.id} className="post-item">
               {/* Circle div for profile picture */}
               <div className="my-container">
-              
+             
               <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 1.0 }}>
               <div className='post-header' >
               <div className="profile-picture"></div>
@@ -66,7 +65,6 @@ function Post() {
 
               </div>
               </motion.div>
-             
               </div>
             </li>
           ))}
