@@ -157,7 +157,7 @@ function Profile() {
     )}
   </Popup>
 </div> */}
-<Popup className="pop-up-element" trigger={<button className="btn btn-dark">Post</button>} modal nested>
+{/* <Popup className="pop-up-element" trigger={<button className="btn btn-dark">Post</button>} modal nested>
   {close => (
     <div className="popup-container" style={{ color: 'black' }}>
       Post here !!
@@ -171,7 +171,7 @@ function Profile() {
       <button className="btn btn-dark" onClick={() => handlePost(title, content, close)}>Post</button>
     </div>
   )}
-</Popup>
+</Popup> */}
 <Popup className="pop-up-element" trigger={<button className="btn btn-dark">Write</button>} modal nested>
   {close => (
     <div className="popup-container" style={{ color: 'black' }}>

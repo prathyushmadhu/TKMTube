@@ -13,7 +13,10 @@ import PrivacyPolicy from './PrivacyPolicy';
 import Gallery from './Gallery';
 import Profile from './Profile';
 // import AppContent from './AppContent';
-import LoginComponent from './LoginComponent';
+//import LoginComponent from './LoginComponent';
+import AuthProvider from './AuthProvider';
+import LoginForm from './LoginForm';
+import RegisterPage from './RegisterPage'
 // import SignUpForm from './signUpForm';
 // import Sliding from './Sliding'
 
@@ -21,10 +24,12 @@ import LoginComponent from './LoginComponent';
 
 createRoot(document.getElementById('root')).render(
   <React.StrictMode>
+    <AuthProvider>
     <Router>
       <Routes>
-        <Route path="/" element={<LoginComponent />} />
+        <Route path="/" element={<LoginForm />} />
         <Route path="/blog" element={<App />} />
+        <Route path="/register" element={<RegisterPage />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/terms" element={<Terms />} />
         <Route path="/privacy" element={<PrivacyPolicy />} />
@@ -33,6 +38,7 @@ createRoot(document.getElementById('root')).render(
         {/* <Route path="/sgal" element={<Sliding/>}/> */}
       </Routes>
     </Router>
+    </AuthProvider>
   </React.StrictMode>
 );
 
