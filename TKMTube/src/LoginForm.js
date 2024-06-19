@@ -1,98 +1,82 @@
-import * as React from 'react';
-import classNames from 'classnames';
+import React, { useState } from 'react';
+import 'bootstrap/dist/css/bootstrap.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faFacebookF, faTwitter, faLinkedinIn } from '@fortawesome/free-brands-svg-icons';
+import { MDBContainer, MDBCol, MDBRow, MDBInput, MDBCheckbox } from 'mdb-react-ui-kit';
 
-export default class LoginForm extends React.Component {
+function App() {
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const [loginStatus, setLoginStatus] = useState('');
+  const [LoggedInUser, setLoggedInUser] = useState(''); // State variable to store the logged-in user
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            active: "login",
-            firstName: "",
-            lastName: "",
-            login: "",
-            password: "",
-            onLogin: props.onLogin,
-            onRegister: props.onRegister
-        };
-    };
+  const handleLogin = () => {
+    if (username === '' || password === '') {
+      setLoginStatus('Login Failed');
+    } else if (username === password) {
+      // Store the username in localStorage
+localStorage.setItem('LoggedInUser', username);
+setLoggedInUser(username);
+ // Store the username in LoggedInUser variable
+      setLoginStatus('Login Successful');
+      // Navigate to '/blog' route after successful login
+      window.location.href = '/blog';
+    } else {
+      setLoginStatus('Login Failed');
+    }
+  };
 
-    onChangeHandler = (event) => {
-        let name = event.target.name;
-        let value = event.target.value;
-        this.setState({[name] : value});
-    };
+  return (
+    <>
+            <>
+  <img src="logo.png" alt="TkmTube Logo" style={{ marginTop: '20px', marginLeft: '20px', width: '200px', height: 'auto' }} />
+</>
+      <MDBContainer fluid className="p-3 my-5 h-custom">
+        <MDBRow>
+          <MDBCol col='10' md='6'>
+            <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp" className="img-fluid" alt="Sample" />
+          </MDBCol>
 
-    onSubmitLogin = (e) => {
-        this.state.onLogin(e, this.state.login, this.state.password);
-    };
+          <MDBCol col='4' md='6' style={{ marginTop: '80px' }}>
+            <div className="d-flex flex-row align-items-center justify-content-center">
+              <p className="lead fw-normal mb-0 me-3">Sign in with</p>
 
-    onSubmitRegister = (e) => {
-        this.state.onRegister(e, this.state.firstName, this.state.lastName, this.state.login, this.state.password);
-    };
+              <button className='btn btn-primary me-2'>
+                <FontAwesomeIcon icon={faFacebookF} />
+              </button>
 
-    render() {
-        return (
-        <div className="row justify-content-center">
-            <div className="col-4">
-            <ul className="nav nav-pills nav-justified mb-3" id="ex1" role="tablist">
-              <li className="nav-item" role="presentation">
-                <button className={classNames("nav-link", this.state.active === "login" ? "active" : "")} id="tab-login"
-                  onClick={() => this.setState({active: "login"})}>Login</button>
-              </li>
-              <li className="nav-item" role="presentation">
-                <button className={classNames("nav-link", this.state.active === "register" ? "active" : "")} id="tab-register"
-                  onClick={() => this.setState({active: "register"})}>Register</button>
-              </li>
-            </ul>
+              <button className='btn btn-primary me-2'>
+                <FontAwesomeIcon icon={faTwitter} />
+              </button>
 
-            <div className="tab-content">
-              <div className={classNames("tab-pane", "fade", this.state.active === "login" ? "show active" : "")} id="pills-login" >
-                <form onSubmit={this.onSubmitLogin}>
-
-                  <div className="form-outline mb-4">
-                    <input type="login" id="loginName" name= "login" className="form-control" onChange={this.onChangeHandler}/>
-                    <label className="form-label" htmlFor="loginName">Username</label>
-                  </div>
-
-                  <div className="form-outline mb-4">
-                    <input type="password" id="loginPassword" name="password" className="form-control" onChange={this.onChangeHandler}/>
-                    <label className="form-label" htmlFor="loginPassword">Password</label>
-                  </div>
-
-                  <button type="submit" className="btn btn-primary btn-block mb-4">Sign in</button>
-
-                </form>
-              </div>
-              <div className={classNames("tab-pane", "fade", this.state.active === "register" ? "show active" : "")} id="pills-register" >
-                <form onSubmit={this.onSubmitRegister}>
-
-                  <div className="form-outline mb-4">
-                    <input type="text" id="firstName" name="firstName" className="form-control" onChange={this.onChangeHandler}/>
-                    <label className="form-label" htmlFor="firstName">First name</label>
-                  </div>
-
-                  <div className="form-outline mb-4">
-                    <input type="text" id="lastName" name="lastName" className="form-control" onChange={this.onChangeHandler}/>
-                    <label className="form-label" htmlFor="lastName">Last name</label>
-                  </div>
-
-                  <div className="form-outline mb-4">
-                    <input type="text" id="login" name="login" className="form-control" onChange={this.onChangeHandler}/>
-                    <label className="form-label" htmlFor="login">Username</label>
-                  </div>
-
-                  <div className="form-outline mb-4">
-                    <input type="password" id="registerPassword" name="password" className="form-control" onChange={this.onChangeHandler}/>
-                    <label className="form-label" htmlFor="registerPassword">Password</label>
-                  </div>
-
-                  <button type="submit" className="btn btn-primary btn-block mb-3">Sign in</button>
-                </form>
-              </div>
+              <button className='btn btn-primary me-2'>
+                <FontAwesomeIcon icon={faLinkedinIn} />
+              </button>
             </div>
-            </div>
-        </div>
-        );
-    };
 
+            <div className="divider d-flex align-items-center my-4">
+              <p className="text-center fw-bold mx-3 mb-0">Or</p>
+            </div>
+
+            <MDBInput wrapperClass='mb-4' label='Username' id='usernameInput' type='text' size="lg" value={username} onChange={(e) => setUsername(e.target.value)} />
+            <MDBInput wrapperClass='mb-4' label='Password' id='passwordInput' type='password' size="lg" value={password} onChange={(e) => setPassword(e.target.value)} />
+
+            <div className="d-flex justify-content-between mb-4">
+              <MDBCheckbox name='flexCheck' value='' id='flexCheckDefault' label='Remember me' />
+              <a href="!#">Forgot password?</a>
+            </div>
+
+            <div className='text-center text-md-start mt-4 pt-2'>
+              <button className="btn btn-primary mb-0 px-5" onClick={handleLogin}>Login</button>
+              <p className="small fw-bold mt-2 pt-1 mb-2" style={{ color: loginStatus === 'Login Failed' ? 'red' : loginStatus === 'Login Successful' ? 'green' : 'inherit' }}>{loginStatus}</p>
+              <p className="small fw-bold mt-2 pt-1 mb-2">Don't have an account? <a href="/register" className="link-danger">Register</a></p>
+            </div>
+          </MDBCol>
+        </MDBRow>
+        <span>{LoggedInUser}</span>
+      </MDBContainer>
+    </>
+  );
 }
+
+export default App;
