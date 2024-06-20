@@ -71,6 +71,9 @@ function Profile() {
       alert('Failed to post the blog. Please try again.'); // Display an alert message for failed post
     });
   };
+  const handleLogout = () => {
+    window.location.href = '/';
+  };
   
 
   useEffect(() => {
@@ -224,7 +227,9 @@ function Profile() {
         </ul>
       </div>
       
-   
+      <button className="btn btn-dark" onClick={handleLogout}>
+      Logout
+    </button>
                 </MDBCardBody>
               </MDBCard>
             </MDBCol>
@@ -232,8 +237,8 @@ function Profile() {
         </MDBContainer>
         </animated.div>
       ))}
-
       </div>
+      
       <Footer />
     </div>
      )}
