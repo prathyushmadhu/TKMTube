@@ -15,6 +15,9 @@ function App() {
     const { name, value } = e.target;
     setFormData((prevData) => ({ ...prevData, [name]: value }));
   };
+  const handleLogin = () => {
+    window.location.href = '/';
+  };
 
   const handleSubmit = (formData) => {
     fetch('http://localhost:8000/auth/register', {
@@ -62,9 +65,21 @@ function App() {
               <MDBInput wrapperClass='mb-4' label='E-mail' name='email' id='emailInput' type='email' size="lg" value={formData.email} onChange={handleChange} />
               <MDBInput wrapperClass='mb-4' label='Password' name='password' id='passwordInput' type='password' size="lg" value={formData.password} onChange={handleChange} />
               <div className="d-flex justify-content-center">
-              <button className='btn btn-lg btn-primary mb-4' onClick={() => handleSubmit(formData)}>
+              <button
+  className='btn btn-lg btn-primary mb-4 me-3'
+  onClick={() => handleSubmit(formData)}
+>
   Register
 </button>
+
+<button
+  className='btn btn-lg btn-primary mb-4'
+  style={{ paddingLeft: '20px' }}
+  onClick={handleLogin}
+>
+  Login
+</button>
+
 
 
 
